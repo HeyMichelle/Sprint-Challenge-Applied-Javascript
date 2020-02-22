@@ -17,37 +17,72 @@
     <div class="right-button"> > </div>
   </div>
 */
+const cDiv = document.querySelector('.carousel-container');
+cDiv.appendChild(carouselCreator())
+console.log(carouselCreator());
 
 
 function carouselCreator() {
   const carousel = document.createElement('div');
   carousel.classList.add('carousel');
 
-  const leftBtn = document.createElement('div');
-  leftBtn.classList.add('left-button');
-  leftBtn.textContent = " < ";
-  carousel.appendChild(leftBtn);
+  const leftBtnDiv = document.createElement('div');
+  leftBtnDiv.classList.add('left-button');
+  carousel.appendChild(leftBtnDiv);
 
-  const img1 = document.createElement('img');
-  img1.src = "./assets/carousel/mountains.jpeg";
-  carousel.appendChild(img1);
+    const leftBtn = document.createElement('button');
+    leftBtn.textContent = " < ";
+    leftBtn.addEventListener('click', (e) => {
+      e.style.cursor = "pointer";
+      });
+    leftBtnDiv.appendChild(leftBtn);
 
-  const img2 = document.createElement('img');
-  img2.src = "./assets/carousel/computer.jpeg";
-  carousel.appendChild(img2);
+    const arr = [
+      './assets/carousel/mountains.jpeg',
+      './assets/carousel/computer.jpeg',
+      './assets/carousel/trees.jpeg',
+      './assets/carousel/turntable.jpeg'
+    ]
+    
+    i = 0;
+    arr.forEach((img, i) => {
+        const image = document.createElement('img');
+        image.classList.add('image');
+        image.src = img;
+        carousel.appendChild(image);
+    })  
 
-  const img3 = document.createElement('img');
-  img3.src = "./assets/carousel/trees.jpeg";
-  carousel.appendChild(img3);
+  const rightBtnDiv = document.createElement('div');
+  rightBtnDiv.classList.add('right-button');
+  carousel.appendChild(rightBtnDiv);
 
-  const img4 = document.createElement('img');
-  img4.src = "./assets/carousel/turntable.jpeg";
-  carousel.appendChild(img4);
-
-  const rightBtn = document.createElement('div');
-  rightBtn.classList.add('left-button');
-  rightBtn.textContent = " > ";
-  carousel.appendChild(rightBtn);
+    const rightBtn = document.createElement('button');
+    rightBtn.textContent = " > ";
+    rightBtn.addEventListener('click', (e) => {
+      e.style.cursor = "pointer";
+      });
+    rightBtnDiv.appendChild(rightBtn);
   
+
   return carousel;
 }
+
+
+    
+document.querySelector(".image").style.display = "block"
+
+ // const img1 = document.createElement('img');
+  // img1.src = "../assets/carousel/mountains.jpeg";
+  // carousel.appendChild(img1);
+
+  // const img2 = document.createElement('img');
+  // img2.src = "../assets/carousel/computer.jpeg";
+  // carousel.appendChild(img2);
+
+  // const img3 = document.createElement('img');
+  // img3.src = "../assets/carousel/trees.jpeg";
+  // carousel.appendChild(img3);
+
+  // const img4 = document.createElement('img');
+  // img4.src = "../assets/carousel/turntable.jpeg";
+  // carousel.appendChild(img4);
