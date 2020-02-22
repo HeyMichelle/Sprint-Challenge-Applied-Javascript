@@ -11,6 +11,7 @@ axios
             const node = articles.node;
             const tech = articles.technology;
             
+            i = 0;
             js.forEach((item) => {
                 card.appendChild(cardCreator(item))
             });
@@ -46,7 +47,6 @@ function cardCreator(article) {
         
         const authorDiv = document.createElement('div');
         authorDiv.classList.add('author');
-        authorDiv.textContent = article.author;
         cardDiv.appendChild(authorDiv);
            
             const imgDiv = document.createElement('div');
@@ -58,7 +58,7 @@ function cardCreator(article) {
                 imgDiv.appendChild(newImg);
 
             const authorsName = document.createElement('span');
-            authorsName.textContent = "By ${articles[i].authorName}";
+            authorsName.textContent = article.authorName;
             authorDiv.appendChild(authorsName);
 
     return cardDiv;
