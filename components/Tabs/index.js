@@ -1,19 +1,48 @@
-// Step 2: Create Tabs
-// -----------------------
-// Using axios send a GET request to the address: https://lambda-times-backend.herokuapp.com/topics
-// Once the data is returned console.log it and review the structure.
-// Iterate over the topics creating a new Tab component and add it to the DOM
-// under the .topics element.
-//
-//  The tab component should look like this:
-//    <div class="tab">topic here</div>
+const topicContent = document.querySelector('.topics')
 
-axios.get('https://lambda-times-backend.herokuapp.com/topics')
-  .then( response => {
-    console.log(response);
-  })
-  .catch( err => {
-    console.log("Error: ", err);
-  })
+axios
+    .get('https://lambda-times-backend.herokuapp.com/topics')
+        .then((res) => {
+            const newTabs = res.data.topics;
+            newTabs.forEach((topic) => {
+                topicContent.appendChild(tabCreator(topic))
+            })
+            // console.log(res);
+            // console.log(res.data.topics);
+        })
+        .catch((err) => {
+            console.log("Error:", err);
+        });
 
-function tabCreator
+
+function tabCreator(tabName) {
+    const tabDiv = document.createElement('div');
+    tabDiv.classList.add('tab');
+    tabDiv.textContent = tabName;
+    return tabDiv;
+}
+
+
+
+// const topicsArray = ['javascript', 'bootstrap', 'technology', 'jquery', 'node.js']
+
+// i = 0;
+
+// axios.get('https://lambda-times-backend.herokuapp.com/topics')
+//   .then( response => {
+//     console.log(response);
+//     const data = response.data.topics;
+//     const topicsDiv = document.querySelector('.topics');
+//     topicsDiv.appendChild(tabCreator(data));
+//   })
+//   .catch( err => {
+//     console.log("Error: ", err);
+//   })
+
+// function tabCreator(data) {
+//     const tabDiv = document.createElement('div');
+//     tabDiv.classList.add("tab");
+//     tabDiv.textContent = `${data}`;
+
+//     return tabDiv;
+// }
