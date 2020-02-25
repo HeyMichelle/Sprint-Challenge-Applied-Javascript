@@ -3,37 +3,53 @@ const card = document.querySelector('.cards-container');
 
 axios
     .get('https://lambda-times-backend.herokuapp.com/articles')
-        .then((res) => { 
-            const articles = res.data.articles;
-            const js = articles.javascript;
-            const bs = articles.bootstrap;
-            const jq = articles.jquery;
-            const node = articles.node;
-            const tech = articles.technology;
-            
-            i = 0;
-            js.forEach((item) => {
-                card.appendChild(cardCreator(item))
-            });
-            bs.forEach((item) => {
-                card.appendChild(cardCreator(item))
-            });
-            jq.forEach((item) => {
-                card.appendChild(cardCreator(item))
-            });
-            node.forEach((item) => {
-                card.appendChild(cardCreator(item))
-            });
-            tech.forEach((item) => {
-                card.appendChild(cardCreator(item))
-            });
-        
-            console.log(res);
-        })
+        .then((res) => {            
+                for (const arr of Object.values(res.data.articles)) {
+                  for (const item of arr) {
+                    card.appendChild(cardCreator(item));
+                  }
+                }
+              })
 
-        .catch((err) => {
-            console.log("Error:", err);
-        })
+              .catch((err) => {
+                console.log("Error:", err);
+            })
+            
+        //     // Object.keys(articles);
+        //     // keys.forEach(key => {
+        //     //      card.appendChild(cardCreator(item))
+        //     // })
+
+        //     const js = articles.javascript;
+        //     const bs = articles.bootstrap;
+        //     const jq = articles.jquery;
+        //     const node = articles.node;
+        //     const tech = articles.technology;
+            
+        //     i = 0;
+           
+        //     js.forEach((item) => {
+        //         card.appendChild(cardCreator(item))
+        //     });
+        //     bs.forEach((item) => {
+        //         card.appendChild(cardCreator(item))
+        //     });
+        //     jq.forEach((item) => {
+        //         card.appendChild(cardCreator(item))
+        //     });
+        //     node.forEach((item) => {
+        //         card.appendChild(cardCreator(item))
+        //     });
+        //     tech.forEach((item) => {
+        //         card.appendChild(cardCreator(item))
+        //     });
+
+        //     // array methods to shorten: ex: instead of articles.javascript, do articles forEach. Can you extract info you need from just "const articles". Object.keys:value. Different ways to access key:value pairs with different methods.  
+        
+        //     console.log(res);
+        // })
+
+      
 
 
 function cardCreator(article) {
