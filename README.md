@@ -29,34 +29,40 @@ Demonstrate your understanding of this week's concepts by answering the followin
 Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager
 
 1. What is the DOM?
+The DOM is the Document Object Model, and it serves as an interface for HTML and XML documents, and how they are read by a browser.  It allows us to manipulate the page that is displayed in the window at that time. The changes will not be able to be viewed from other computers, only from your own. It is language neutral as well. You can insert page elements into the DOM using JS as one language option. 
 
 2. What is an event?
+Any interaction between a user and a site is considered an event, whether it be a click, pressing keys, scrolling the page. The term trigger is used when an event occurs.
+
 
 3. What is an event listener?
+The event listener identifies when an event occurs, tracks it down, and takes action accordingly. It takes two arguments, the event and the callback to use when an event is triggered. 
 
 4. Why would we convert a NodeList into an Array?
+One is example is when using querySelectorAll(), because these return node lists, which are array-like objects (browser-based API's). They do not return arrays (JS API). 
 
 5. What is a component?
+Similar to mixin's in less being used to keep the code DRY, a component is a reusable chunk of code that serve as the building blocks of application development. It can have pieces of HTML, CSS or JS. 
 
 ### Git Set up
 
-* [ ] Fork the project into your GitHub user account
-* [ ] Clone the forked project into a directory on your machine
-* [ ] Create a pull request before you start working on the project requirements.  You will continuously push your updates throughout the project.
-* [ ] You are now ready to build this project with your preferred IDE
+* [x] Fork the project into your GitHub user account
+* [x] Clone the forked project into a directory on your machine
+* [x] Create a pull request before you start working on the project requirements.  You will continuously push your updates throughout the project.
+* [x] You are now ready to build this project with your preferred IDE
 
 ## Minimum Viable Product
 
 Your finished project must include all of the following requirements:
 
-* [ ] Look through the HTML code and familiarize yourself with the different sections. Some of them already exist, but some need to be filled in. DO NOT add any code to the HTML file itself.
+* [x] Look through the HTML code and familiarize yourself with the different sections. Some of them already exist, but some need to be filled in. DO NOT add any code to the HTML file itself.
 
-* [ ] Following the instructions in the `Header/index.js` file, create the Header component. 
+* [x] Following the instructions in the `Header/index.js` file, create the Header component. 
 
-* [ ] Following the instructions in the `Tabs/index.js` file, create individual Tabs components.
+* [x] Following the instructions in the `Tabs/index.js` file, create individual Tabs components.
 
-* [ ] Following the instructions in the `Cards/index.js` file, create individual Cards components.
-
+* [x] Following the instructions in the `Cards/index.js` file, create individual Cards components.
+ 
 ## Stretch Problems
 
 Your stretch challenge is to write the functionality of a `Carousel` component. This is an advanced challenge, so you are not expected to be able to complete it. If you begin and don't finish, you should still submit with what you have. This is going to be a bit different because you are going to need to create some advanced functionality for the carousel. There is no need to request data for this exercise.
